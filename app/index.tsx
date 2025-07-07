@@ -2,6 +2,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
+import ExperienciaItem from "../components/ExperienciaItem";
+import FormacaoItem from "../components/FormacaoItem";
 
 export default function HomeScreen() {
   const [image, setImage] = useState<string | null>(null);
@@ -35,13 +37,23 @@ export default function HomeScreen() {
               )}
             </View>
           </TouchableOpacity>
+          {/* Informações */}
+          <View style={styles.infoBlock}>
+            <Text style={styles.name}>Soluço Banguela</Text>
+            <Text style={styles.title}>Domador de Dragões</Text>
 
+            <View style={styles.contactSection}>
+              <Text style={styles.contactTitle}>Contato</Text>
+              <Text style={styles.contactText}>Email: domador.dragoes@feras.com</Text>
+              <Text style={styles.contactText}>Telefone: Sinal de fumaça</Text>
+              <Text style={styles.contactText}>Website: domadordedragoes.com</Text>
+            </View>
+          </View>
           {/* Seção: Sobre mim */}
           <View style={styles.aboutSection}>
             <Text style={styles.sectionTitle}>Sobre mim</Text>
-            <Text style={styles.aboutText}>
-              Desenvolvedor apaixonado por tecnologia, com experiência em aplicações móveis e web.
-              Tenho facilidade com trabalho em equipe, foco em resultados e gosto de aprender coisas novas todos os dias.
+            <Text style={styles.aboutText}>               Treino seu dragão para conseguir montar nele e voar com ele, faço ele te obedecer completamente.
+              
             </Text>
           </View>
 
@@ -58,18 +70,18 @@ export default function HomeScreen() {
 
             {/* Linhas da Tabela */}
             <View style={styles.tableRow}>
-              <Text style={[styles.tableCell, styles.cellCurso]}>React Native</Text>
-              <Text style={[styles.tableCell, styles.cellInstituicao]}>Alura</Text>
+              <Text style={[styles.tableCell, styles.cellCurso]}>Domador de Dragões</Text>
+              <Text style={[styles.tableCell, styles.cellInstituicao]}>Universidade Draconis</Text>
               <Text style={[styles.tableCell, styles.cellAno]}>2023</Text>
             </View>
             <View style={styles.tableRow}>
-              <Text style={[styles.tableCell, styles.cellCurso]}>JavaScript Avançado</Text>
-              <Text style={[styles.tableCell, styles.cellInstituicao]}>Rocketseat</Text>
+              <Text style={[styles.tableCell, styles.cellCurso]}>Treinador de Dragões</Text>
+              <Text style={[styles.tableCell, styles.cellInstituicao]}>Academia de Estudos Draconianos</Text>
               <Text style={[styles.tableCell, styles.cellAno]}>2022</Text>
             </View>
             <View style={styles.tableRow}>
-              <Text style={[styles.tableCell, styles.cellCurso]}>UX Design</Text>
-              <Text style={[styles.tableCell, styles.cellInstituicao]}>Coursera</Text>
+              <Text style={[styles.tableCell, styles.cellCurso]}>Veterinaria de Dragões</Text>
+              <Text style={[styles.tableCell, styles.cellInstituicao]}>Instituto Escamas de Ouro</Text>
               <Text style={[styles.tableCell, styles.cellAno]}>2021</Text>
             </View>
           </View>
@@ -80,52 +92,33 @@ export default function HomeScreen() {
 
             {/* Exemplo de Habilidade */}
             <View style={styles.skillItem}>
-              <Text style={styles.skillLabel}>React Native</Text>
+              <Text style={styles.skillLabel}>Domador de Dragões</Text>
               <View style={styles.progressBar}>
-                <View style={[styles.progressFill, { width: '90%' }]} />
+                <View style={[styles.progressFill, { width: '100%' }]} />
               </View>
             </View>
 
             <View style={styles.skillItem}>
-              <Text style={styles.skillLabel}>JavaScript</Text>
+              <Text style={styles.skillLabel}>Treinador de Dragões</Text>
               <View style={styles.progressBar}>
-                <View style={[styles.progressFill, { width: '85%' }]} />
+                <View style={[styles.progressFill, { width: '100%' }]} />
               </View>
             </View>
 
             <View style={styles.skillItem}>
-              <Text style={styles.skillLabel}>TypeScript</Text>
+              <Text style={styles.skillLabel}>Veterinaria de Dragões</Text>
               <View style={styles.progressBar}>
-                <View style={[styles.progressFill, { width: '75%' }]} />
+                <View style={[styles.progressFill, { width: '80%' }]} />
               </View>
             </View>
 
             <View style={styles.skillItem}>
-              <Text style={styles.skillLabel}>Figma</Text>
+              <Text style={styles.skillLabel}>Nutricionista de Dragões</Text>
               <View style={styles.progressBar}>
-                <View style={[styles.progressFill, { width: '60%' }]} />
+                <View style={[styles.progressFill, { width: '55%' }]} />
               </View>
             </View>
           </View>
-          {modalVisible && (
-            <View style={styles.modalOverlay}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalTitle}>Níveis de Idioma</Text>
-                <Text style={styles.modalText}>
-                  🇺🇸 Inglês: Avançado (consegue se comunicar fluentemente em ambientes profissionais e técnicos).
-                </Text>
-                <Text style={styles.modalText}>
-                  🇪🇸 Espanhol: Intermediário (compreende e se expressa em situações do dia a dia).
-                </Text>
-                <Text style={styles.modalText}>
-                  🇧🇷 Português: Nativo (completo domínio da língua materna).
-                </Text>
-                <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.modalCloseButton}>
-                  <Text style={styles.modalCloseText}>Fechar</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          )}
           {/* Seção: Idiomas */}
           <View style={styles.languagesSection}>
             <Text style={styles.sectionTitle}>Idiomas</Text>
@@ -224,20 +217,117 @@ export default function HomeScreen() {
               </View>
             </View>
           </View>
+          {/* Linha divisória */}
+          <View style={styles.divisor} />
+          {/* Seção: Experiência Profissional */}
+          <View style={styles.experienciaSection}>
+            <Text style={styles.sectionTitle}>Experiência Profissional</Text>
+            <ExperienciaItem
+              cargo="Domador e Treinador de Dragões"
+              empresa="Ilha de Berk LTDA"
+              periodo="2019 - Presente"
+              descricao="Responsável por domar todos os dragões para os cidadões da ilha e encontrar o ninho dos dragões e derrotar o lider deles."
+            />
+            <ExperienciaItem
+              cargo="domador, Treinador e Veterinario de Dragões"
+              empresa="Ninho dos Dragões - Montanha de Neve"
+              periodo="2023 - 2025"
+              descricao="Fui o responsável por salvar todos os dragões ao lado da minha mãe e seu dragão, derrotei outro lider dos dragões."
+            />
+          </View>
+          {/* Linha divisória */}
+          <View style={styles.divisor} />
+          {/* Seção: Formação Acadêmica */}
+          <View style={styles.formacaoSection}>
+            <Text style={styles.sectionTitle}>Formação Acadêmica</Text>
+            <FormacaoItem
+              curso="Domador de Dragões"
+              instituicao="Universidade Draconis"
+              ano="2019 - 2023"
+            />
+            <FormacaoItem
+              curso="Treinador de Dragões"
+              instituicao="Academia de Estudos Draconianos"
+              ano="2017 - 2019"
+            />
+          </View>
+          {/* Linha divisória */}
+          <View style={styles.divisor} />
+        </View>
+        {modalVisible && (
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalTitle}>Níveis de Idioma</Text>
 
-          {/* Informações */}
-          <View style={styles.infoBlock}>
-            <Text style={styles.name}>Tiger Cat</Text>
-            <Text style={styles.title}>Web Developer</Text>
+              {/* Seção: Idiomas */}
+              <View style={styles.languagesSection}>
+                <View style={styles.languageItem}>
+                  <Text style={styles.languageLabel}>
+                    🇺🇸 Inglês:{" "}
+                    <View style={styles.dotsRow}>
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <View
+                          key={i}
+                          style={[
+                            styles.dot,
+                            i <= 4 ? styles.dotFilled : styles.dotEmpty,
+                          ]}
+                        />
+                      ))}
+                    </View>
+                  </Text>
+                  <Text style={styles.modalText}>
+                    Cconsegue se comunicar fluentemente em ambientes profissionais
+                    e técnicos.
+                  </Text>
+                </View>
 
-            <View style={styles.contactSection}>
-              <Text style={styles.contactTitle}>Contato</Text>
-              <Text style={styles.contactText}>Email: tiger@company.com</Text>
-              <Text style={styles.contactText}>Telefone: +00 123 456 789</Text>
-              <Text style={styles.contactText}>Website: www.tiger-portfolio.com</Text>
+                <View style={styles.languageItem}>
+                  <Text style={styles.languageLabel}>
+                    🇪🇸 Espanhol:{" "}
+                    <View style={styles.dotsRow}>
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <View
+                          key={i}
+                          style={[
+                            styles.dot,
+                            i <= 3 ? styles.dotFilled : styles.dotEmpty,
+                          ]}
+                        />
+                      ))}
+                    </View>
+                  </Text>
+
+                  <Text style={styles.modalText}>
+                    Intermediário: compreende e se expressa em situações do dia a
+                    dia.
+                  </Text>
+                </View>
+
+                <View style={styles.languageItem}>
+                  <Text style={styles.languageLabel}>
+                    🇧🇷 Português:{" "}
+                    <View style={styles.dotsRow}>
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <View key={i} style={[styles.dot, styles.dotFilled]} />
+                      ))}
+                    </View>
+                  </Text>
+
+                  <Text style={styles.modalText}>
+                    Nativo: completo domínio da língua materna.
+                  </Text>
+                </View>
+              </View>
+              <TouchableOpacity
+                onPress={() => setModalVisible(false)}
+                style={styles.modalCloseButton}
+              >
+                <Text style={styles.modalCloseText}>Fechar</Text>
+              </TouchableOpacity>
             </View>
           </View>
-        </View>
+        )}
       </ScrollView>
     </View>
   );
@@ -249,7 +339,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   topRow: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'flex-start',
   },
   profileImageWrapper: {
@@ -469,6 +559,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
-
+  experienciaSection: {
+    marginTop: 30,
+  },
+  formacaoSection: {
+    marginTop: 30,
+  },
+  divisor: {
+    height: 1,
+    backgroundColor: "#ccc",
+    marginVertical: 24,
+  },
 });
 

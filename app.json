@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Curriculo_Mobile",
-    "slug": "Curriculo_Mobile",
+    "name": "cv-online",
+    "slug": "cv-online",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "curriculomobile",
+    "icon": "./assets/images/cv-online.png",
+    "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -13,10 +13,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/cv-online.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.trauss_kk.cvonline"
     },
     "web": {
       "bundler": "metro",
@@ -28,7 +28,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/cv-online.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
@@ -37,6 +37,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "db2c82aa-8a29-4c05-9494-44c2c7f18490"
+      }
     }
   }
 }
